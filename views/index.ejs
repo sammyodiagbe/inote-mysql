@@ -1,13 +1,15 @@
 <%- include('partials/head.ejs'); %>
 <div class="notes-list">
-    <% if(notes.length) { %>
-    <h3>Notes is available</h3>
-
-    <% } else { %>
+    <% if(notes.length) { %> <% notes.forEach(function(note) {%>
+    <div class="note" style=<%= `border-left: 5px solid ${note.title}`%>>
+        <h3><%= note.title %></h3>
+    </div>
+    <% }) %> <% } else { %>
     <h3>No notes are available</h3>
     <p>
         You can add a new note by clicking on add new note below
     </p>
+    <% } %>
 </div>
 <a href="/add-new-note" class="new-note">new note</a>
-<% } %> <%- include("partials/footer.ejs"); %>
+<%- include("partials/footer.ejs"); %>

@@ -11,11 +11,14 @@ body {
     font-size: 16px;
     background: #efefef;
     font-family: "Montserrat", sans-serif;
+    a {
+        text-decoration: none;
+        color: #333;
+    }
 }
 
 nav.inote-navigation {
     height: 60px;
-    background: #fff;
     padding: 0 1em;
     margin-bottom: 20px;
     display: flex;
@@ -32,22 +35,26 @@ div.inote-container {
     position: relative;
     div.notes-list {
         color: #222;
-        padding: 1em;
+        margin-bottom: 20px;
     }
 
     a.new-note {
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
-        padding: 0.6em 1em;
+        display: inline-block;
+        padding: 8px 1em;
         font-weight: bolder;
         text-decoration: none;
         color: #fff;
         background: dodgerblue;
+        border-radius: 20px;
+        margin-left: auto;
     }
 
     div.add-new-note-container {
         form {
+            label {
+                display: block;
+                padding: 10px 0;
+            }
             input,
             textarea,
             select {
@@ -62,6 +69,7 @@ div.inote-container {
                     border: 1px solid green;
                 }
             }
+
             input,
             textarea,
             button,
@@ -71,12 +79,24 @@ div.inote-container {
             }
 
             button {
-                padding: 10px;
+                padding: 8px 15px;
                 background: dodgerblue;
                 border: none;
+                border-radius: 20px;
+                display: block;
                 color: #fff;
                 font-weight: bolder;
+                margin-left: auto;
+                font-size: 0.9em;
             }
+        }
+        a {
+            text-decoration: underline;
+            display: block;
+            font-size: 0.8em;
+            padding: 10px 0;
+            margin-left: auto;
+            text-align: right;
         }
     }
 }

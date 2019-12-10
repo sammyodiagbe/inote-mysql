@@ -1,10 +1,12 @@
 <%- include('partials/head'); %>
 <div class="add-new-note-container">
     <h2 style="padding: 10px 0;">Add a new note mate</h2>
-    <form method="post" action="/create-note">
+    <form method="post" action="/create-new-note">
         <label for="title">Title</label>
         <input type="text" name="title" placeholder="note title" />
+        <label for="description">Description</label>
         <textarea name="description" placeholder="note description"></textarea>
+        <label for="color">Color</label>
         <select name="color" value="default">
             <option value="default">Default</option>
             <option value="blue">Blue</option>
