@@ -1,5 +1,6 @@
 <%- include('partials/head'); %>
 <div class="add-new-note-container">
+    <h2 style="padding: 10px 0;">Add a new note mate</h2>
     <form method="post" action="/create-note">
         <label for="title">Title</label>
         <input type="text" name="title" placeholder="note title" />
@@ -12,7 +13,6 @@
         </select>
         <button type="submit">Create note</button>
     </form>
-    <a href="/">
-    Go home</a>
+    <a href="/"> Go home</a>
 </div>
 <%- include('partials/footer.ejs'); %>

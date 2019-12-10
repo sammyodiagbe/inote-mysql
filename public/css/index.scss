@@ -1,39 +1,82 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
 }
 
 body {
     font-size: 16px;
     background: #efefef;
+    font-family: "Montserrat", sans-serif;
+}
+
+nav.inote-navigation {
+    height: 60px;
+    background: #fff;
+    padding: 0 1em;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
 }
 
 div.inote-container {
     width: 400px;
     margin: 0 auto;
-    height: 600px;
+    height: auto;
     padding: 1em;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
     position: relative;
     div.notes-list {
         color: #222;
         padding: 1em;
     }
 
-    a.new-note { 
-        position: absolute; 
+    a.new-note {
+        position: absolute;
         right: 10px;
         bottom: 10px;
-        padding: .6em 1em;
+        padding: 0.6em 1em;
         font-weight: bolder;
         text-decoration: none;
         color: #fff;
         background: dodgerblue;
-        border-radius: 8px;
     }
 
-}
+    div.add-new-note-container {
+        form {
+            input,
+            textarea,
+            select {
+                padding: 1em 8px;
+                width: 100%;
+                margin-bottom: 10px;
+                background: transparent;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                resize: none;
+                &:hover {
+                    border: 1px solid green;
+                }
+            }
+            input,
+            textarea,
+            button,
+            select {
+                display: block;
+                font-size: 1em;
+            }
 
+            button {
+                padding: 10px;
+                background: dodgerblue;
+                border: none;
+                color: #fff;
+                font-weight: bolder;
+            }
+        }
+    }
+}
