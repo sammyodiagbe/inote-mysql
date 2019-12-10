@@ -1,0 +1,20 @@
+{
+  "name": "inote",
+  "version": "1.0.0",
+  "description": "a note taking application using expressjs and sequelize",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Odiagbe samson",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mysql2": "^2.0.2",
+    "nodemon": "^2.0.1",
+    "sequelize": "^5.21.2"
+  }
+}
