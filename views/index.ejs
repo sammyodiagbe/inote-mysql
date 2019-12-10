@@ -1,11 +1,11 @@
 <%- include('partials/head.ejs'); %>
 <div class="notes-list">
     <% if(notes.length) { %> <% notes.forEach(function(note) {%>
-    <div class="note" style=<%= `border-left: 5px solid ${note.title}`%>>
+    <div class="note" style="border-left: 3px solid <%= note.color %>;">
         <h3><%= note.title %></h3>
     </div>
     <% }) %> <% } else { %>
-    <h3>No notes are available</h3>
+    <h4>No notes are available</h4>
     <p>
         You can add a new note by clicking on add new note below
     </p>
