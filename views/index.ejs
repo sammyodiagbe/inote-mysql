@@ -1,0 +1,10 @@
+<%- include('partials/head.ejs'); %> 
+<div class="notes-list">
+<% if(notes.length) { %>
+<p>Notes is available</p>
+<% } else { %>
+<p>No notes are available</p>
+</div>
+<a href="/add-new-note" class="new-note">Awwn let add a new note</a>
+<% } %>
+<%- include("partials/footer.ejs"); %>

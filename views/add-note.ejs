@@ -1,0 +1,18 @@
+<%- include('partials/head'); %>
+<div class="add-new-note-container">
+    <form method="post" action="/create-note">
+        <label for="title">Title</label>
+        <input type="text" name="title" placeholder="note title" />
+        <textarea name="description" placeholder="note description"></textarea>
+        <select name="color" value="default">
+            <option value="default">Default</option>
+            <option value="blue">Blue</option>
+            <option value="red">Red</option>
+            <option value="orange">Orange</option>
+        </select>
+        <button type="submit">Create note</button>
+    </form>
+    <a href="/">
+    Go home</a>
+</div>
+<%- include('partials/footer.ejs'); %>
