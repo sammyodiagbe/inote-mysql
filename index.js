@@ -6,6 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const sequelize = require("./utils/database");
 const mainRoutes = require("./routes/main");
+const authRoutes = require("./routes/auth-routes");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -14,6 +15,7 @@ app.set("views", "views");
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(mainRoutes);
+app.use("/auth", authRoutes);
 
 app.use((req, res, next) => {
     res.render("404", { title: "Page not found" });
