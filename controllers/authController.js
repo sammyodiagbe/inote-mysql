@@ -6,7 +6,25 @@ exports.getLogin = (req, res, next) => {
   res.render("login", { title: "Login into your account" });
 };
 
-exports.postLoginHandler = (req, res, next) => {};
+exports.postLoginHandler = (req, res, next) => {
+    const { email , password } = req.body;
+    User.findOne({ where: { email }})
+        .then(user => {
+            if(!user) {
+                return res.redirect("/auth/login")
+            }
+            // compare password
+            const userHashedPassword = user.password;
+            bcrypt.compare(password, userHashedPassword)
+                .then(match => {
+                    if(!match) {
+                        return res.redirect("/auth/login");
+                    }
+                    res.redirect("/");
+                })
+        })
+        .catch(err => console.log(err));
+};
 
 exports.getSignupHandler = (req, res, next) => {
   res.render("signup", {
