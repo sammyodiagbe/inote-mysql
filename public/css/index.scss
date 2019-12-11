@@ -26,6 +26,20 @@ nav.inote-navigation {
     width: 80%;
     margin: 0 auto;
     margin-bottom: 20px;
+    justify-content: space-between;
+    div.right {
+        ul {
+            list-style: none;
+            li {
+                display: inline-block;
+                a {
+                    padding: 0 1em;
+                    font-weight: bold;
+                    color: #222;
+                }
+            }
+        }
+    }
 }
 
 div.inote-container {
@@ -56,6 +70,42 @@ div.inote-container {
         margin-left: auto;
     }
 
+    div.authentication-container {
+        h3 {
+            padding: 10px 0;
+        }
+        form {
+
+            
+            input {
+                width: 100%;
+                padding: 1em 8px;
+                border: 1px solid #ccc;
+                margin-bottom: 10px;
+                border-radius: 3px;
+                font-size: 1em;
+                &:hover {
+                    border: 1px solid dodgerblue;
+                }
+                &:focus {
+                    outline: 0;
+                    border: 1px solid dodgerblue;
+                }
+            }
+
+            button {
+                padding: 8px 1em;
+                display: block;
+                margin-top: 10px;
+                margin-left: auto;
+                background: dodgerblue;
+                border: none;
+                color: #fff;
+                border-radius: 20px;
+                font-weight: bolder;
+            }
+        }
+    }
     div.add-new-note-container {
         form {
             label {

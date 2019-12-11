@@ -30,6 +30,23 @@ nav.inote-navigation {
   width: 80%;
   margin: 0 auto;
   margin-bottom: 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+nav.inote-navigation div.right ul {
+  list-style: none;
+}
+
+nav.inote-navigation div.right ul li {
+  display: inline-block;
+}
+
+nav.inote-navigation div.right ul li a {
+  padding: 0 1em;
+  font-weight: bold;
+  color: #222;
 }
 
 div.inote-container {
@@ -61,6 +78,40 @@ div.inote-container a.new-note {
   background: dodgerblue;
   border-radius: 20px;
   margin-left: auto;
+}
+
+div.inote-container div.authentication-container h3 {
+  padding: 10px 0;
+}
+
+div.inote-container div.authentication-container form input {
+  width: 100%;
+  padding: 1em 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  font-size: 1em;
+}
+
+div.inote-container div.authentication-container form input:hover {
+  border: 1px solid dodgerblue;
+}
+
+div.inote-container div.authentication-container form input:focus {
+  outline: 0;
+  border: 1px solid dodgerblue;
+}
+
+div.inote-container div.authentication-container form button {
+  padding: 8px 1em;
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  background: dodgerblue;
+  border: none;
+  color: #fff;
+  border-radius: 20px;
+  font-weight: bolder;
 }
 
 div.inote-container div.add-new-note-container form label {
