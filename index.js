@@ -4,6 +4,7 @@ const path = require("path");
 const Session = require("express-session");
 const SequelizeStore = require('connect-session-sequelize')(Session.Store);
 const app = express();
+const flash = require('connect-flash');
 
 
 const PORT = process.env.PORT || 3000;
@@ -23,6 +24,7 @@ app.use(Session({
         db: sequelize
     })
 }));
+app.use(flash())
 app.set("view engine", "ejs");
 app.set("views", "views");
 app.use(express.static(path.join(__dirname, "public")));

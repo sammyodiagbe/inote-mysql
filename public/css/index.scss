@@ -27,6 +27,8 @@ nav.inote-navigation {
     margin: 0 auto;
     margin-bottom: 20px;
     justify-content: space-between;
+
+    
     div.right {
         ul {
             list-style: none;
@@ -50,6 +52,15 @@ div.inote-container {
     background: #fff;
     border-radius: 8px;
     position: relative;
+    div.flash {
+        width: 400px;
+        margin: 8px auto;
+        padding: 10px;
+
+        &.flash-success {
+            background: rgb(165, 255, 172);
+        }
+    }
     div.notes-list {
         color: #222;
         margin-bottom: 20px;

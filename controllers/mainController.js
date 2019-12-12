@@ -5,7 +5,8 @@ exports.getIndex = (req, res, next) => {
     req.session.prevPage = req.originalUrl;
     Notes.findAll()
         .then((notes) => {
-            res.render("index", { notes, title: "welcome to inotes" });
+            
+            res.render("index", { notes, title: "welcome to inotes",success: req.flash('success') });
         })
         .catch((err) => console.log(err));
 };
@@ -28,6 +29,7 @@ exports.postCreateNote = (req, res, next) => {
             return note.save();
         })
         .then((done) => {
+            req.flash('success', 'Your note was created successfully');
             res.redirect("/");
         })
         .catch((err) => console.log(err));

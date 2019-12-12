@@ -59,6 +59,16 @@ div.inote-container {
   position: relative;
 }
 
+div.inote-container div.flash {
+  width: 400px;
+  margin: 8px auto;
+  padding: 10px;
+}
+
+div.inote-container div.flash.flash-success {
+  background: #a5ffac;
+}
+
 div.inote-container div.notes-list {
   color: #222;
   margin-bottom: 20px;

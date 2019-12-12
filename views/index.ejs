@@ -1,4 +1,9 @@
 <%- include('partials/head.ejs'); %>
+<% if(success) { %>
+    <div class="flash flash-success">
+        <p><%= success; %></p>
+    </div>
+<% } %>
 <div class="notes-list">
     <% if(notes.length) { %> <% notes.forEach(function(note) {%>
     <div class="note" style="border-left: 3px solid <%= note.color %>;">
