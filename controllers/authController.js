@@ -17,9 +17,12 @@ exports.postLoginHandler = (req, res, next) => {
             const userHashedPassword = user.password;
             bcrypt.compare(password, userHashedPassword)
                 .then(match => {
+                    console.log(match)
                     if(!match) {
                         return res.redirect("/auth/login");
                     }
+                    req.session.isAuthenticated = true;
+                    req.session.user = user;
                     res.redirect("/");
                 })
         })
@@ -57,4 +60,12 @@ exports.postSignupHandler = (req, res, next) => {
             })
         }) 
         .catch(err => console.log('error ' + err));
+}
+
+
+exports.postLogout = (req, res, next) => {
+    req.session.destroy((err) => {
+        
+        res.redirect("/");
+    });
 }

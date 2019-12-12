@@ -1,6 +1,8 @@
 const Notes = require("../models/notes");
 
+
 exports.getIndex = (req, res, next) => {
+    console.log(req.session.isAuthenticated);
     Notes.findAll()
         .then((notes) => {
             res.render("index", { notes, title: "welcome to inotes" });
