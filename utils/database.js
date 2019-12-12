@@ -8,7 +8,8 @@ const sequelize = new Sequelize("inote-database", "root", "", {
     min: 0,
     acquire: 30000,
     idle: 10000
-  }
+  },
+  loggin: false
 });
 
 module.exports = sequelize;

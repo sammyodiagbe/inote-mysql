@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(mainRoutes);
 app.use("/auth", authRoutes);
 app.use((req, res, next) => {
+    req.url
     if(!req.session.user) {
         return next();
     }

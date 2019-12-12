@@ -2,7 +2,7 @@ const Notes = require("../models/notes");
 
 
 exports.getIndex = (req, res, next) => {
-    console.log(req.session.isAuthenticated);
+    req.session.prevPage = req.originalUrl;
     Notes.findAll()
         .then((notes) => {
             res.render("index", { notes, title: "welcome to inotes" });
@@ -11,6 +11,7 @@ exports.getIndex = (req, res, next) => {
 };
 
 exports.getAddNewNote = (req, res, next) => {
+    req.session.prevPage = req.originalUrl;
     res.render("add-note", {
         title: "create new note"
     });
