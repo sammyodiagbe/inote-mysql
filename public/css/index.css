@@ -9,7 +9,7 @@
 
 body {
   font-size: 16px;
-  background: #efefef;
+  background: #222121;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -33,6 +33,11 @@ nav.inote-navigation {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  color: #fff;
+}
+
+nav.inote-navigation a {
+  color: #fff;
 }
 
 nav.inote-navigation div.right ul {
@@ -46,13 +51,13 @@ nav.inote-navigation div.right ul li {
 nav.inote-navigation div.right ul li a {
   padding: 0 1em;
   font-weight: bold;
-  color: #222;
+  color: #fff;
 }
 
 nav.inote-navigation div.right ul li button {
   background: transparent;
   border: none;
-  color: #222;
+  color: #fff;
   font-weight: bold;
   cursor: pointer;
   margin: 0 1em;
@@ -64,7 +69,7 @@ nav.inote-navigation div.right ul li a.new-note {
   font-weight: bolder;
   text-decoration: none;
   color: #fff;
-  background: dodgerblue;
+  background: #10af4d;
   border-radius: 20px;
   margin-left: auto;
 }
@@ -73,6 +78,16 @@ div.flash {
   width: 100%;
   margin: 8px auto;
   padding: 10px;
+  -webkit-animation-name: scale-in;
+          animation-name: scale-in;
+  -webkit-animation-duration: .4s;
+          animation-duration: .4s;
+  -webkit-animation-delay: .2s;
+          animation-delay: .2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-transform: scale(0);
+          transform: scale(0);
 }
 
 div.flash p {
@@ -82,35 +97,55 @@ div.flash p {
 div.flash.flash-success {
   background: #a5ffac;
   border: 1px solid green;
+  color: #222;
 }
 
 div.flash.flash-error {
   background: #fcb8b8;
   border: 1px solid red;
+  color: #222;
 }
 
 div.inote-container {
-  width: 400px;
+  width: 80%;
   margin: 0 auto;
   height: auto;
   padding: 1em;
-  background: #fff;
   border-radius: 8px;
   position: relative;
+  min-height: calc(100vh - 60px);
+  padding-top: 1em;
 }
 
 div.inote-container div.notes-list {
   color: #222;
   margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 div.inote-container div.notes-list div.note {
   margin-bottom: 10px;
   padding: 1em;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(33.333% - 5px);
+          flex: 0 0 calc(33.333% - 5px);
+  background: #fff;
+  margin-right: 5px;
+}
+
+div.inote-container div.authentication-container {
+  width: 400px;
+  margin: 0 auto;
+  color: #fff;
 }
 
 div.inote-container div.authentication-container h3 {
   padding: 10px 0;
+  color: #fff;
 }
 
 div.inote-container div.authentication-container form input {
@@ -136,7 +171,7 @@ div.inote-container div.authentication-container form button {
   display: block;
   margin-top: 10px;
   margin-left: auto;
-  background: dodgerblue;
+  background: #10af4d;
   border: none;
   color: #fff;
   border-radius: 20px;
@@ -193,5 +228,19 @@ div.inote-container div.add-new-note-container a {
   padding: 10px 0;
   margin-left: auto;
   text-align: right;
+}
+
+@-webkit-keyframes scale-in {
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes scale-in {
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 /*# sourceMappingURL=index.css.map */

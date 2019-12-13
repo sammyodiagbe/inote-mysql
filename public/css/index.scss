@@ -9,7 +9,7 @@
 
 body {
     font-size: 16px;
-    background:slateblue;
+    background:rgb(34, 33, 33);
     font-family: "Montserrat", sans-serif;
     a {
         text-decoration: none;
@@ -27,7 +27,11 @@ nav.inote-navigation {
     margin: 0 auto;
     margin-bottom: 20px;
     justify-content: space-between;
+    color: #fff;
 
+    a {
+        color: #fff;
+    }
     
     div.right {
         ul {
@@ -37,13 +41,13 @@ nav.inote-navigation {
                 a {
                     padding: 0 1em;
                     font-weight: bold;
-                    color: #222;
+                    color: #fff;
                 }
 
                 button {
                     background: transparent;
                     border: none;
-                    color: #222;
+                    color: #fff;
                     font-weight: bold;
                     cursor:pointer;
                     margin: 0 1em;
@@ -54,7 +58,7 @@ nav.inote-navigation {
                     font-weight: bolder;
                     text-decoration: none;
                     color: #fff;
-                    background: dodgerblue;
+                    background: rgb(16, 175, 77);
                     border-radius: 20px;
                     margin-left: auto;
                 }
@@ -67,43 +71,59 @@ div.flash {
     width: 100%;
     margin: 8px auto;
     padding: 10px;
+    animation-name: scale-in;
+    animation-duration: .4s;
+    animation-delay: .2s;
+    animation-fill-mode: forwards;
+    transform: scale(0);
     p {
         font-size: 14px;
     }
     &.flash-success {
         background: rgb(165, 255, 172);
         border: 1px solid green;
+        color: #222;
     }
 
     &.flash-error {
         background: rgb(252, 184, 184);
         border: 1px solid red;
+        color: #222;
     }
 }
 
 div.inote-container {
-    width: 400px;
+    width: 80%;
     margin: 0 auto;
     height: auto;
     padding: 1em;
-    background: #fff;
     border-radius: 8px;
     position: relative;
-    
+    min-height: calc(100vh - 60px);
+    padding-top: 1em;
     div.notes-list {
         color: #222;
         margin-bottom: 20px;
+        display:flex;
+        flex-wrap: wrap;
         div.note {
             margin-bottom: 10px;
             padding: 1em;
+            flex: 0 0 calc(33.333% - 5px);
+            background: #fff;
+            margin-right: 5px;
         }
     }
 
     
 
     div.authentication-container {
+        width: 400px;
+        margin: 0 auto;
+        color: #fff;
         h3 {
             padding: 10px 0;
+            color: #fff;
         }
         form {
 
@@ -129,7 +149,7 @@ div.inote-container {
                 display: block;
                 margin-top: 10px;
                 margin-left: auto;
-                background: dodgerblue;
+                background: rgb(16, 175, 77);;
                 border: none;
                 color: #fff;
                 border-radius: 20px;
@@ -186,5 +206,11 @@ div.inote-container {
             margin-left: auto;
             text-align: right;
         }
+    }
+}
+
+@keyframes scale-in {
+    to {
+        transform: scale(1);
     }
 }

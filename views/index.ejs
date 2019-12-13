@@ -4,16 +4,13 @@
         <p><%= success; %></p>
     </div>
 <% } %>
-
-<% if(isAuthenticated) { %>
-    <p>Authenticated</p>
-<% }else { %>
-    <p>not authenticated</p>
-<% } %>
+<h2 style="color: #fff; padding: 10px">Your notes &#128512; </h3>
 <div class="notes-list">
+    
     <% if(notes.length) { %> <% notes.forEach(function(note) {%>
     <div class="note" style="border-left: 3px solid <%= note.color %>;">
         <h3><%= note.title %></h3>
+        <p><%= note.description %></p>
     </div>
     <% }) %> <% } else { %>
     <h4>No notes are available</h4>

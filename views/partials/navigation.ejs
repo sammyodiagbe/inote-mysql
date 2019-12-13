@@ -7,14 +7,16 @@
             <li><a href="/auth/signup">Signup</a></li>
             <% } else { %>
             <li style="padding: 0 1em;">Hi, <span style="font-size: 1.5em; font-weight: bold;"><%= user.name %></span></li>
+            
+            <li>
+                <a href="/add-new-note" class="new-note">Create a new note</a>
+                </li>
             <li>
                 <form action="/auth/logout" method="post">
                     <button type="submit">logout</button>
                 </form>
             </li>
-            <li>
-                <a href="/add-new-note" class="new-note">new note</a>
-            </li>
+            
             <% } %>
         </ul>
     </div>
