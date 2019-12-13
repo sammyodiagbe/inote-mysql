@@ -2,8 +2,11 @@
     <a href="/"><h1>inote</h1></a>
     <div class="right">
         <ul>
+            <% if(!isAuthenticated) { %>
             <li><a href="/auth/login">Login</a></li>
             <li><a href="/auth/signup">Signup</a></li>
+            <% } else { %>
+            <li style="padding: 0 1em;">Hi, <span style="font-size: 1.5em; font-weight: bold;"><%= user.name %></span></li>
             <li>
                 <form action="/auth/logout" method="post">
                     <button type="submit">logout</button>
@@ -12,6 +15,7 @@
             <li>
                 <a href="/add-new-note" class="new-note">new note</a>
             </li>
+            <% } %>
         </ul>
     </div>
 </nav>

@@ -2,6 +2,7 @@ const Notes = require("../models/notes");
 
 exports.getIndex = (req, res, next) => {
     req.session.prevPage = req.originalUrl;
+    console.log(req.user);
     Notes.findAll()
         .then((notes) => {
             let success = req.flash("success");
@@ -10,7 +11,8 @@ exports.getIndex = (req, res, next) => {
                 notes,
                 title: "welcome to inotes",
                 success,
-                isAuthenticated: req.session.isAuthenticated
+                isAuthenticated: req.session.isAuthenticated,
+                user: req.user
             });
         })
         .catch((err) => console.log(err));
@@ -19,7 +21,9 @@ exports.getIndex = (req, res, next) => {
 exports.getAddNewNote = (req, res, next) => {
     req.session.prevPage = req.originalUrl;
     res.render("add-note", {
-        title: "create new note"
+        title: "create new note",
+        isAuthenticated: req.session.isAuthenticated,
+        user: req.user
     });
 };
 
