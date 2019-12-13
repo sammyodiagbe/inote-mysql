@@ -36,7 +36,7 @@ app.use((req, res, next) => {
     if(!req.session.user) {
         return next();
     }
-    User.findOne({ id: req.session.user.id})
+    User.findOne({ where: {id: req.session.user.id}})
         .then((user) => {
             req.user = user;
             next();

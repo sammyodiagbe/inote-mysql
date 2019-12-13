@@ -9,7 +9,7 @@ const sequelize = new Sequelize("inote-database", "root", "", {
     acquire: 30000,
     idle: 10000
   },
-  loggin: false
+  logging: false
 });
 
 module.exports = sequelize;

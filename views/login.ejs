@@ -4,6 +4,11 @@
 </div>
 <div class="right-container">
     <div class="authentication-container login-auth">
+        <% if(loginError) { %>
+            <div class="flash flash-error">
+                <p><%= loginError %></p>
+            </div>
+        <% } %>
         <h3>Login</h3>
         <form action="/auth/login" method="post">
             <input type="text" name="email" placeholder="email@email.com" class="input-auth" />

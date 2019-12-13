@@ -5,8 +5,9 @@ exports.getIndex = (req, res, next) => {
     req.session.prevPage = req.originalUrl;
     Notes.findAll()
         .then((notes) => {
-            
-            res.render("index", { notes, title: "welcome to inotes",success: req.flash('success') });
+            let success = req.flash('success');
+            success = success.length > 0 ? success[0] : null;
+            res.render("index", { notes, title: "welcome to inotes", success});
         })
         .catch((err) => console.log(err));
 };

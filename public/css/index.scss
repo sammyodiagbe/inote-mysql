@@ -39,8 +39,45 @@ nav.inote-navigation {
                     font-weight: bold;
                     color: #222;
                 }
+
+                button {
+                    background: transparent;
+                    border: none;
+                    color: #222;
+                    font-weight: bold;
+                    cursor:pointer;
+                    margin: 0 1em;
+                }
+                a.new-note {
+                    display: inline-block;
+                    padding: 5px 1em;
+                    font-weight: bolder;
+                    text-decoration: none;
+                    color: #fff;
+                    background: dodgerblue;
+                    border-radius: 20px;
+                    margin-left: auto;
+                }
             }
         }
+    }
+}
+
+div.flash {
+    width: 100%;
+    margin: 8px auto;
+    padding: 10px;
+    p {
+        font-size: 14px;
+    }
+    &.flash-success {
+        background: rgb(165, 255, 172);
+        border: 1px solid green;
+    }
+
+    &.flash-error {
+        background: rgb(252, 184, 184);
+        border: 1px solid red;
     }
 }
 
@@ -52,15 +89,7 @@ div.inote-container {
     background: #fff;
     border-radius: 8px;
     position: relative;
-    div.flash {
-        width: 400px;
-        margin: 8px auto;
-        padding: 10px;
-
-        &.flash-success {
-            background: rgb(165, 255, 172);
-        }
-    }
+    
     div.notes-list {
         color: #222;
         margin-bottom: 20px;
@@ -70,16 +99,7 @@ div.inote-container {
         }
     }
 
-    a.new-note {
-        display: inline-block;
-        padding: 8px 1em;
-        font-weight: bolder;
-        text-decoration: none;
-        color: #fff;
-        background: dodgerblue;
-        border-radius: 20px;
-        margin-left: auto;
-    }
+    
 
     div.authentication-container {
         h3 {

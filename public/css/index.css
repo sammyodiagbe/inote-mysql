@@ -49,6 +49,46 @@ nav.inote-navigation div.right ul li a {
   color: #222;
 }
 
+nav.inote-navigation div.right ul li button {
+  background: transparent;
+  border: none;
+  color: #222;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 1em;
+}
+
+nav.inote-navigation div.right ul li a.new-note {
+  display: inline-block;
+  padding: 5px 1em;
+  font-weight: bolder;
+  text-decoration: none;
+  color: #fff;
+  background: dodgerblue;
+  border-radius: 20px;
+  margin-left: auto;
+}
+
+div.flash {
+  width: 100%;
+  margin: 8px auto;
+  padding: 10px;
+}
+
+div.flash p {
+  font-size: 14px;
+}
+
+div.flash.flash-success {
+  background: #a5ffac;
+  border: 1px solid green;
+}
+
+div.flash.flash-error {
+  background: #fcb8b8;
+  border: 1px solid red;
+}
+
 div.inote-container {
   width: 400px;
   margin: 0 auto;
@@ -59,16 +99,6 @@ div.inote-container {
   position: relative;
 }
 
-div.inote-container div.flash {
-  width: 400px;
-  margin: 8px auto;
-  padding: 10px;
-}
-
-div.inote-container div.flash.flash-success {
-  background: #a5ffac;
-}
-
 div.inote-container div.notes-list {
   color: #222;
   margin-bottom: 20px;
@@ -77,17 +107,6 @@ div.inote-container div.notes-list {
 div.inote-container div.notes-list div.note {
   margin-bottom: 10px;
   padding: 1em;
-}
-
-div.inote-container a.new-note {
-  display: inline-block;
-  padding: 8px 1em;
-  font-weight: bolder;
-  text-decoration: none;
-  color: #fff;
-  background: dodgerblue;
-  border-radius: 20px;
-  margin-left: auto;
 }
 
 div.inote-container div.authentication-container h3 {
