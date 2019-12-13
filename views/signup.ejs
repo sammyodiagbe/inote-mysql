@@ -4,7 +4,13 @@
 </div>
 <div class="right-container">
     <div class="authentication-container login-auth">
+            <% if(signupError) { %>
+                <div class="flash flash-error">
+                    <p><%= signupError; %></p>
+                </div>
+            <% } %>
         <h3>Create account</h3>
+        
         <form action="/auth/signup" method="post">
             <input type="text" name="name" placeholder="your name" class="input-auth" />
             <input type="text" name="email" placeholder="email@email.com" class="input-auth" />

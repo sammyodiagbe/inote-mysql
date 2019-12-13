@@ -9,6 +9,11 @@
                 <p><%= loginError %></p>
             </div>
         <% } %>
+        <% if(signupSuccess) { %>
+            <div class="flash flash-success">
+                <p><%= signupSuccess %></p>
+            </div>
+        <% } %>
         <h3>Login</h3>
         <form action="/auth/login" method="post">
             <input type="text" name="email" placeholder="email@email.com" class="input-auth" />

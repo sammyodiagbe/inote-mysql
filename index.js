@@ -15,6 +15,7 @@ const User = require('./models/user');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 app.use(Session({
     secret: 'hey now brown cow',
     secure: true,
@@ -31,14 +32,15 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(mainRoutes);
 app.use("/auth", authRoutes);
+
 app.use((req, res, next) => {
-    req.url
     if(!req.session.user) {
         return next();
     }
     User.findOne({ where: {id: req.session.user.id}})
         .then((user) => {
             req.user = user;
+            res.locals.isAuthenticated = true;
             next();
         })
         .catch(err => console.log(err))
@@ -52,7 +54,7 @@ sequelize
     .sync()
     .then((result) => {
         app.listen(PORT, () => {
-            console.log("connected");
+            console.log('we are connected');
         });
     })
     .catch((err) => console.log(err));

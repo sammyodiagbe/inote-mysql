@@ -4,6 +4,12 @@
         <p><%= success; %></p>
     </div>
 <% } %>
+
+<% if(isAuthenticated) { %>
+    <p>Authenticated</p>
+<% }else { %>
+    <p>not authenticated</p>
+<% } %>
 <div class="notes-list">
     <% if(notes.length) { %> <% notes.forEach(function(note) {%>
     <div class="note" style="border-left: 3px solid <%= note.color %>;">
