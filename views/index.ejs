@@ -4,12 +4,12 @@
         <p><%= success; %></p>
     </div>
 <% } %>
-<h2 style="color: #fff; padding: 10px">Your notes &#128512; </h3>
+<h2 style="color: #222; padding: 10px">Your notes &#128512; </h3>
 <div class="notes-list">
     
     <% if(notes.length) { %> <% notes.forEach(function(note) {%>
     <div class="note" style="border-left: 3px solid <%= note.color %>;">
-        <h3><%= note.title %></h3>
+        <a href="/view-note?note=<%= note.id %>"><h3><%= note.title %></h3></a>
         <p><%= note.description %></p>
     </div>
     <% }) %> <% } else { %>

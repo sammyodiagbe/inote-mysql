@@ -1,0 +1,17 @@
+<%- include('partials/head.ejs'); %>
+<div class="view-note-container" style="border-top: 10px solid <%= note.color %>">
+    <h1><%= note.title %></h1>
+    <p><%= note.description %></p>
+    <div class="action-container">
+        <form action="/update-note?note=<%= note.id %>">
+            <button class="action-btn update">Update</button>
+        </form>
+        <form action="/done-note?note=<%= note.id %>">
+            <button class="action-btn done">done</button>
+        </form>
+        <form action="/delete-note?note= <%= note.id %>">
+            <button class="action-btn delete">delete note</button>
+        </form>
+    </div>
+</div>
+<%-include('partials/footer.ejs'); %>

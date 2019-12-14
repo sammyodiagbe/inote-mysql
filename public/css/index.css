@@ -9,13 +9,61 @@
 
 body {
   font-size: 16px;
-  background: #222121;
+  background: #efefef;
   font-family: "Montserrat", sans-serif;
 }
 
 body a {
   text-decoration: none;
   color: #333;
+}
+
+div.view-note-container {
+  width: 500px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 1em;
+}
+
+div.view-note-container h1 {
+  padding: 10px 0;
+}
+
+div.view-note-container p {
+  padding: 5px 0;
+}
+
+div.view-note-container div.action-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 0;
+}
+
+div.view-note-container div.action-container form {
+  margin-right: 5px;
+}
+
+div.view-note-container div.action-container form button.action-btn {
+  padding: 5px 1em;
+  font-weight: bolder;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+div.view-note-container div.action-container form button.action-btn.update {
+  background: green;
+}
+
+div.view-note-container div.action-container form button.action-btn.done {
+  background: dodgerblue;
+}
+
+div.view-note-container div.action-container form button.action-btn.delete {
+  background: #eb3535;
 }
 
 nav.inote-navigation {
@@ -33,11 +81,6 @@ nav.inote-navigation {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  color: #fff;
-}
-
-nav.inote-navigation a {
-  color: #fff;
 }
 
 nav.inote-navigation div.right ul {
@@ -51,13 +94,12 @@ nav.inote-navigation div.right ul li {
 nav.inote-navigation div.right ul li a {
   padding: 0 1em;
   font-weight: bold;
-  color: #fff;
 }
 
 nav.inote-navigation div.right ul li button {
   background: transparent;
   border: none;
-  color: #fff;
+  color: #222;
   font-weight: bold;
   cursor: pointer;
   margin: 0 1em;
@@ -137,21 +179,26 @@ div.inote-container div.notes-list div.note {
   margin-right: 5px;
 }
 
+div.inote-container div.notes-list div.note h3 {
+  color: #339;
+  padding: 10px 0;
+}
+
 div.inote-container div.authentication-container {
   width: 400px;
   margin: 0 auto;
-  color: #fff;
+  color: #222;
 }
 
 div.inote-container div.authentication-container h3 {
   padding: 10px 0;
-  color: #fff;
+  color: #222;
 }
 
 div.inote-container div.authentication-container form input {
   width: 100%;
   padding: 1em 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #aaa;
   margin-bottom: 10px;
   border-radius: 3px;
   font-size: 1em;
@@ -176,6 +223,13 @@ div.inote-container div.authentication-container form button {
   color: #fff;
   border-radius: 20px;
   font-weight: bolder;
+}
+
+div.inote-container div.add-new-note-container {
+  width: 400px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 1em;
 }
 
 div.inote-container div.add-new-note-container form label {

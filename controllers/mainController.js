@@ -43,3 +43,14 @@ exports.postCreateNote = (req, res, next) => {
         })
         .catch((err) => console.log(err));
 };
+
+exports.getViewNote = (req, res, next) => {
+    const { note } = req.query;
+    console.log(req.user);
+    Notes.findOne({ where: {id: note}})
+        .then(note => {
+             return res.render('view-note', { title: note.title, user: req.user, note})
+        })
+        .catch(err => res.redirect('/'))
+    
+}
