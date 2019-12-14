@@ -10,7 +10,8 @@ const {
   postLoginHandler,
   postSignupHandler,
   postLogout,
-  getPasswordReset
+  getPasswordReset,
+  postPasswordReset
 } = controller;
 
 router.get("/login", isAuthenticated, getLogin);
@@ -24,4 +25,6 @@ router.post("/signup", isAuthenticated, postSignupHandler);
 router.post("/logout", postLogout);
 
 router.get("/password-reset", isAuthenticated, getPasswordReset);
+
+router.post("/password-reset", isAuthenticated, postPasswordReset);
 module.exports = router;
