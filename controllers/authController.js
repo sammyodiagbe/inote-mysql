@@ -2,8 +2,9 @@ const bcrypt = require("bcryptjs");
 const nodemailer = require("nodemailer");
 const sendGridTransporter = require("nodemailer-sendgrid-transport");
 const crypto = require("crypto");
+const Op = require("sequelize").Op;
 
-const key = "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";
+// const key = "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";
 const options = {
     auth: {
         api_user: "sammyodiagbe",
@@ -145,7 +146,7 @@ exports.postPasswordReset = (req, res, next) => {
                 subject: "Reset your password",
                 html: `
             <h1>Reset your password</h1>
-            <a href="http://localhost:3000/auth/changepassword?t=${token}">Link</a>
+            <p>Reset your password by following this <a href="http://localhost:3000/auth/changepassword?t=${token}&email=${email}">Link</a></p>
           `
             };
 
@@ -155,7 +156,49 @@ exports.postPasswordReset = (req, res, next) => {
                     console.log(info);
                 }
             });
+            // req.flash('success', )
             return res.redirect("/auth/password-reset");
         })
         .catch((err) => res.end());
 };
+
+
+exports.getChangePassword = (req, res, next) => {
+  const { t, email } = req.query;
+  res.render("auth/change-password", {
+    isAuthenticated: null,
+    user: null,
+    token: t,
+    email: email,
+    title: "Change your password"
+  })
+}
+
+exports.postChangePassword = (req, res, next) => {
+  const { password, email, token} = req.body;
+  let newUser;
+  User.findOne({ where : {
+    email : email,
+    userPasswordResetToken: token,
+    userPasswordResetTokenExpiration: {
+      [Op.gt] : Date.now()
+    }
+  }})
+  .then(user => {
+    if(!user) {
+      return res.redirect("/auth/login");
+    }
+    newUser = user;
+    return bcrypt.hash(password, 12);
+  })
+  .then(newHashedPassword => {
+    newUser.password = newHashedPassword;
+    return newUser.save()
+  })
+  .then(() => {
+    res.redirect('/auth/login')
+  })
+  .catch(err => {
+    console.log(err);
+  })
+}
