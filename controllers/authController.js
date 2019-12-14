@@ -96,3 +96,13 @@ exports.postLogout = (req, res, next) => {
     res.redirect("/auth/login");
   });
 };
+
+exports.getPasswordReset = (req, res, next) => {
+  res.render("password-reset", {
+    user: null,
+    isAuthenticated: null,
+    title: "reset your password",
+    loginError: null,
+    signupError: null
+  });
+};

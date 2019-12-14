@@ -1,18 +1,27 @@
 const express = require("express");
 
 const router = express.Router();
-const isAutheticated = require("../middleware/auth-pages");
-
+const isAuthenticated = require("../middleware/auth-pages");
 
 const controller = require("../controllers/authController");
-const { getLogin, getSignupHandler, postLoginHandler, postSignupHandler, postLogout} = controller;
+const {
+  getLogin,
+  getSignupHandler,
+  postLoginHandler,
+  postSignupHandler,
+  postLogout,
+  getPasswordReset
+} = controller;
 
-router.get("/login",isAutheticated, getLogin);
+router.get("/login", isAuthenticated, getLogin);
 
-router.post("/login",isAutheticated, postLoginHandler)
+router.post("/login", isAuthenticated, postLoginHandler);
 
-router.get("/signup",isAutheticated, getSignupHandler);
+router.get("/signup", isAuthenticated, getSignupHandler);
 
-router.post("/signup",isAutheticated, postSignupHandler);
-router.post("/logout", postLogout)
+router.post("/signup", isAuthenticated, postSignupHandler);
+
+router.post("/logout", postLogout);
+
+router.get("/password-reset", isAuthenticated, getPasswordReset);
 module.exports = router;
