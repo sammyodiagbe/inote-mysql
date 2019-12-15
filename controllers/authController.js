@@ -1,16 +1,9 @@
 const bcrypt = require("bcryptjs");
-const nodemailer = require("nodemailer");
-const sendGridTransporter = require("nodemailer-sendgrid-transport");
 const crypto = require("crypto");
 const Op = require("sequelize").Op;
 
 // const key = "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";
-const options = {
-  auth: {
-    api_user: process.env.SENDGRID_USERNAME,
-    api_key: process.env.SENDGRID_PASSKEY
-  }
-};
+
 
 const sendEmail = nodemailer.createTransport(sendGridTransporter(options));
 
@@ -150,12 +143,12 @@ exports.postPasswordReset = (req, res, next) => {
             <p>Reset your password by following this <a href="http://localhost:3000/auth/changepassword?t=${token}&email=${email}">Link</a></p>`
       };
 
-      sendEmail.sendMail(email_, (err, info) => {
-        if (err) {
-          console.log(err);
-        }
-        console.log(info);
-      });
+      // sendEmail.sendMail(email_, (err, info) => {
+      //   if (err) {
+      //     console.log(err);
+      //   }
+      //   console.log(info);
+      // });
       // req.flash('success', )
       return res.redirect("/auth/password-reset");
     })
