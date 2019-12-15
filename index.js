@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -5,8 +6,6 @@ const Session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(Session.Store);
 const app = express();
 const flash = require("connect-flash");
-const key =
-  "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";
 
 const PORT = process.env.PORT || 3000;
 const sequelize = require("./utils/database");

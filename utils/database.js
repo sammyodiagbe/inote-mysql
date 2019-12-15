@@ -1,8 +1,8 @@
 const Sequelize = require("sequelize");
 
-const sequelize = new Sequelize("inote-database", "root", "", {
+const sequelize = new Sequelize(process.env.DATABASE_CONNECTION_STRING, {
   dialect: "mysql",
-  host: "localhost",
+  host: process.env.DATBASE_HOST,
   pool: {
     max: 5,
     min: 0,
