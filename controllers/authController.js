@@ -6,7 +6,7 @@ const Op = require("sequelize").Op;
 
 
 
-const sendEmail = new MailGun({ apiKey: process.env.MAILGUN_API_KEY, domain: MAILGUN_DOMAIN});
+const sendEmail = new MailGun({ apiKey: process.env.MAILGUN_API_KEY, domain: process.env.MAILGUN_DOMAIN});
 
 const User = require("../models/user");
 
