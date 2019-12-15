@@ -139,25 +139,25 @@ exports.postPasswordReset = (req, res, next) => {
             return user.save();
         })
         .then(() => {
-            console.log(email);
             let email_ = {
                 from: "inoteapp",
                 to: email,
                 subject: "Reset your password",
                 html: `
             <h1>Reset your password</h1>
-            <p>Reset your password by following this <a href="http://localhost:3000/auth/changepassword?t=${token}&email=${email}">Link</a></p>
-          `
+            <p>Reset your password by following this <a href="http://localhost:3000/auth/changepassword?t=${token}&email=${email}">Link</a></p>`
             };
 
             sendEmail.sendMail(email_, (err, info) => {
                 if (err) {
-                    console.log(err);
-                    console.log(info);
+                    console.log(err);                
                 }
+                console.log(info);
             });
             // req.flash('success', )
-            return res.redirect("/auth/password-reset");
+            return res
+                    .status(200)
+                    .redirect("/auth/password-reset");
         })
         .catch((err) => res.end());
 };
