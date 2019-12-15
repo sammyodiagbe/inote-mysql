@@ -136,7 +136,7 @@ exports.postPasswordReset = (req, res, next) => {
     .then(() => {
       console.log("sending email");
       let email_ = {
-        from: "inoteapp",
+        from: "inoteapp@inote-note.herokuapp.com",
         to: email,
         subject: "Reset your password",
         html: `
