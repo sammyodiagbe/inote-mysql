@@ -141,7 +141,7 @@ exports.postPasswordReset = (req, res, next) => {
         subject: "Reset your password",
         html: `
             <h1>Reset your password</h1>
-            <p>Reset your password by following this <a href="http://localhost:3000/auth/changepassword?t=${token}&email=${email}">Link</a></p>`
+            <p>Reset your password by following this <a href="https://inote-note.herokuapp.com/auth/changepassword?t=${token}&email=${email}">Link</a></p>`
       };
 
       sendEmail.messages().send(email_, (err, data) => {
