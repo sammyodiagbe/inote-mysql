@@ -6,7 +6,6 @@ const connnectionString =
     : process.env.DATABASE_CONNECTION_STRING;
 const sequelize = new Sequelize(connnectionString, {
   dialect: "mysql",
-  host: process.env.DATBASE_HOST,
   pool: {
     max: 5,
     min: 0,
