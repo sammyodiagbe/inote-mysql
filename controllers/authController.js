@@ -7,8 +7,8 @@ const Op = require("sequelize").Op;
 // const key = "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";
 const options = {
   auth: {
-    api_user: "app155847868@heroku.com",
-    api_key: "samsonosaro12345"
+    api_user: process.env.SENDGRID_USERNAME,
+    api_key: process.env.SENDGRID_PASSKEY
   }
 };
 
