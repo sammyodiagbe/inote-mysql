@@ -1,11 +1,12 @@
 const bcrypt = require("bcryptjs");
 const crypto = require("crypto");
+const MailGun = require("mailgun-js");
 const Op = require("sequelize").Op;
 
-// const key = "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";
 
 
-const sendEmail = nodemailer.createTransport(sendGridTransporter(options));
+
+const sendEmail = new MailGun({ apiKey: process.env.MAILGUN_API_KEY, domain: MAILGUN_DOMAIN});
 
 const User = require("../models/user");
 
@@ -143,13 +144,12 @@ exports.postPasswordReset = (req, res, next) => {
             <p>Reset your password by following this <a href="http://localhost:3000/auth/changepassword?t=${token}&email=${email}">Link</a></p>`
       };
 
-      // sendEmail.sendMail(email_, (err, info) => {
-      //   if (err) {
-      //     console.log(err);
-      //   }
-      //   console.log(info);
-      // });
-      // req.flash('success', )
+      sendEmail.messages().send(email_, (err, data) => {
+        if(err) {
+          return console.log(err)
+        }
+        console.log(data);
+      })
       return res.redirect("/auth/password-reset");
     })
     .catch(err => res.end());

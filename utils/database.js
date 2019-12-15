@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const enviroment = process.env.DEV_ENV;
 const connnectionString =
-  enviroment === "localhost"
+  enviroment === "development"
     ? process.env.LOCAL_DATABASE_CONNECTION_STRING
     : process.env.DATABASE_CONNECTION_STRING;
 const sequelize = new Sequelize(connnectionString, {
