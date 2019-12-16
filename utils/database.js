@@ -4,7 +4,7 @@ const connectionString =
   enviroment === "production"
     ? process.env.LOCAL_DATABASE_CONNECTION_STRING
     : process.env.DATABASE_CONNECTION_STRING;
-const sequelize = new Sequelize(connectionString, {
+const sequelize = new Sequelize(process.env.JAWSDB_URL, {
   dialect: "mysql",
   pool: {
     max: 5,
