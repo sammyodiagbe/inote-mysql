@@ -216,6 +216,10 @@ exports.postChangePassword = (req, res, next) => {
       return newUser.save();
     })
     .then(() => {
+      req.flash(
+        "success",
+        "Your password change was successfull, please login"
+      );
       res.redirect("/auth/login");
     })
     .catch(err => {
