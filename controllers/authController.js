@@ -184,7 +184,7 @@ exports.getChangePassword = (req, res, next) => {
       res.render("auth/change-password", {
         isAuthenticated: null,
         user: null,
-        token: t,
+        token: token,
         email: email,
         title: "Change your password"
       });
