@@ -26,10 +26,10 @@ const User = sequelize.define("user", {
     allowNull: false
   },
   userPasswordResetToken: {
-    type: Sequelize.INTEGER
+    type: Sequelize.STRING
   },
   userPasswordResetTokenExpiration: {
-    type: Sequelize.INTEGER
+    type: Sequelize.BIGINT
   }
 });
 
