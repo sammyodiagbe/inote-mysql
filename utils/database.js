@@ -4,7 +4,7 @@ const connnectionString =
   enviroment === "development"
     ? process.env.LOCAL_DATABASE_CONNECTION_STRING
     : process.env.DATABASE_CONNECTION_STRING;
-const sequelize = new Sequelize(connnectionString, {
+const sequelize = new Sequelize('inote-database', 'root', '', {
   dialect: "mysql",
   pool: {
     max: 5,
