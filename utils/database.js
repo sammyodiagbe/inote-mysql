@@ -1,10 +1,10 @@
 const Sequelize = require("sequelize");
 const enviroment = process.env.DEV_ENV;
-const connnectionString =
-  enviroment === "development"
+const connectionString =
+  enviroment === "localhost"
     ? process.env.LOCAL_DATABASE_CONNECTION_STRING
     : process.env.DATABASE_CONNECTION_STRING;
-const sequelize = new Sequelize(connnectionString, {
+const sequelize = new Sequelize(connectionString, {
   dialect: "mysql",
   pool: {
     max: 5,

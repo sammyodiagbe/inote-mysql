@@ -53,8 +53,6 @@ app.use((req, res, next) => {
 sequelize
   .sync()
   .then(result => {
-    app.listen(PORT, () => {
-      console.log("we are connected");
-    });
+    app.listen(PORT, () => {});
   })
   .catch(err => console.log(err));

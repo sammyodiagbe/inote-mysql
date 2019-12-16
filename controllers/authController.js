@@ -3,10 +3,11 @@ const crypto = require("crypto");
 const MailGun = require("mailgun-js");
 const Op = require("sequelize").Op;
 
-
-
-
-const sendEmail = new MailGun({ apiKey: process.env.MAILGUN_API_KEY, domain: process.env.MAILGUN_DOMAIN});
+const sendEmail = new MailGun({
+  apiKey: process.env.MAILGUN_API_KEY,
+  domain: process.env.MAILGUN_DOMAIN
+});
+let env = process.env.DEV_ENV;
 
 const User = require("../models/user");
 
@@ -116,6 +117,7 @@ exports.getPasswordReset = (req, res, next) => {
 };
 
 exports.postPasswordReset = (req, res, next) => {
+  console.log("post password reset");
   const { email } = req.body;
   // find a user with the
   let token;
@@ -126,6 +128,7 @@ exports.postPasswordReset = (req, res, next) => {
         return res.redirect("/auth/password-reset");
       }
 
+      console.log("generating and setting tokens");
       // generate token and set expiration time
       token = crypto.randomBytes(32).toString("hex");
       const expirationTime = Date.now() + 36000000;
@@ -134,36 +137,59 @@ exports.postPasswordReset = (req, res, next) => {
       return user.save();
     })
     .then(() => {
-      console.log("sending email");
       let email_ = {
         from: "inoteapp@inote-note.herokuapp.com",
         to: email,
         subject: "Reset your password",
         html: `
             <h1>Reset your password</h1>
-            <p>Reset your password by following this <a href="https://inote-note.herokuapp.com/auth/changepassword?t=${token}&email=${email}">Link</a></p>`
+            <p>Reset your password by following this <a href="${
+              env === "production"
+                ? "https://inote-note.herokuapp.com"
+                : "http://localhost:3000"
+            }/auth/changepassword?token=${token}&email=${email}">Link</a></p>`
       };
 
       sendEmail.messages().send(email_, (err, data) => {
-        if(err) {
-          return console.log(err)
+        if (err) {
+          return console.log("We have an error: ", err);
         }
-        console.log(data);
-      })
+        console.log("gotten data: ", data);
+      });
       return res.redirect("/auth/password-reset");
     })
-    .catch(err => res.end());
+    .catch(err => {
+      console.log(err);
+      res.end();
+    });
 };
 
 exports.getChangePassword = (req, res, next) => {
-  const { t, email } = req.query;
-  res.render("auth/change-password", {
-    isAuthenticated: null,
-    user: null,
-    token: t,
-    email: email,
-    title: "Change your password"
-  });
+  const { token, email } = req.query;
+
+  // this is a route that needs maximum protection
+  User.findOne({
+    where: {
+      email: email,
+      userPasswordResetToken: token,
+      userPasswordResetTokenExpiration: {
+        [Op.gt]: Date.now()
+      }
+    }
+  })
+    .then(user => {
+      if (!user) {
+        return redirect("/auth/login");
+      }
+      res.render("auth/change-password", {
+        isAuthenticated: null,
+        user: null,
+        token: t,
+        email: email,
+        title: "Change your password"
+      });
+    })
+    .catch(err => console.log(err));
 };
 
 exports.postChangePassword = (req, res, next) => {
