@@ -217,7 +217,7 @@ exports.postChangePassword = (req, res, next) => {
     })
     .then(() => {
       req.flash(
-        "success",
+        "signup-success",
         "Your password change was successfull, please login"
       );
       res.redirect("/auth/login");
